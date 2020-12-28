@@ -10,7 +10,7 @@ def ext_vectors(args):
     train_dataset = SpecDataset(mode='train')
 
     model = VAE(z_dim=128, output_units=20)
-    checkpoint = torch.load('experiments/2020-12-08-15_25_02/checkpoint_0989.pth.tar', map_location=device)
+    checkpoint = torch.load('experiments/checkpoint_0989.pth.tar', map_location=device)
     model.load_state_dict(checkpoint['state_dict_G'])
     model.to(device)
     print(model.eval())

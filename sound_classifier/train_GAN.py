@@ -247,10 +247,6 @@ def parse():
     parser.add_argument('--lr', '--learning-rate', '--LR', default=0.001, type=float,
                         metavar='LR',
                         help='Initial learning rate.')
-    parser.add_argument('--momentum', default=0.9, type=float, metavar='MOMENTUM',
-                        help='momentum')
-    parser.add_argument('--wd', '--wd', '--WD', default=1e-04, type=float,
-                        metavar='WD', help='weight decay (default: 5e-4)')
     parser.add_argument('--resume', default='', type=str, metavar='PATH',
                         help='path to latest checkpoint (default: none)')
     parser.add_argument('--musicnn_dis', dest='musicnn_dis',action='store_true',

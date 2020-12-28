@@ -314,13 +314,14 @@ def save_checkpoint(state, epoch, checkpoint_dir):
     torch.save(state, checkpoint_path)
 
 
-def test_mapper(device, resume = 'mapper_experiments/2020-12-14-13_01_21/checkpoint_0040.pth.tar'):
+def test_mapper(device, resume='mapper_experiments_vaes/checkpoint_0006.pth.tar'):
     from tqdm import tqdm
-    from image_classifier.train_tools import resnet20
+    from image_classifier.train_tools.models.VAE_MMGAN import ImgVAE
     from sound_classifier.VAE_MMGAN import VAE
-    img_classifier = resnet20(dim_in=1, num_classes=20)
-    img_classifier.load_state_dict(torch.load('image_classifier/results/res20_0.8982.pth'))
-    print(img_classifier.eval())
+    img_classifier = ImgVAE(z_dim=128, output_units=20)
+    checkpoint = torch.load('image_classifier/experiments/checkpoint_0009.pth.tar',
+                            map_location='cpu')
+    img_classifier.load_state_dict(checkpoint['state_dict_G'])
     img_classifier = img_classifier.classifier.to(device)
     print(img_classifier.eval())
     snd_classifier = VAE(z_dim=128, output_units=20)

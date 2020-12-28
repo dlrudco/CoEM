@@ -102,7 +102,7 @@ class FinalModel(nn.Module):
 
     def build_image_generator(self):
         image_generator = ImgVAE(z_dim=128, output_units=20)
-        checkpoint = torch.load('image_classifier/experiments/2020-12-15-11_08_38/checkpoint_0009.pth.tar',
+        checkpoint = torch.load('image_classifier/experiments/checkpoint_0009.pth.tar',
                                 map_location='cpu')
         image_generator.load_state_dict(checkpoint['state_dict_G'])
         encoder = image_generator.encoder
@@ -113,7 +113,7 @@ class FinalModel(nn.Module):
 
     def build_sound_generator(self):
         sound_generator = VAE(z_dim=128, output_units=20)
-        checkpoint = torch.load('sound_classifier/experiments/2020-12-08-15_25_02/checkpoint_0989.pth.tar',
+        checkpoint = torch.load('sound_classifier/experiments/checkpoint_0989.pth.tar',
                                 map_location='cpu')
         sound_generator.load_state_dict(checkpoint['state_dict_G'])
         encoder = sound_generator.encoder
@@ -124,11 +124,9 @@ class FinalModel(nn.Module):
 
     def init_mapper(self, mapper_path):
         if mapper_path is None:
-            checkpoint = torch.load('mapper_experiments_vaes/2020-12-18-00_08_15/checkpoint_0005.pth.tar',
+            checkpoint = torch.load('mapper_experiments_vaes/checkpoint_0006.pth.tar',
                                 map_location='cpu')
             self.mapper_snd2img.load_state_dict(checkpoint['state_dict_snd2img'])
-            checkpoint = torch.load('mapper_experiments_vaes/2020-12-18-15_07_57/checkpoint_0002.pth.tar',
-                                    map_location='cpu')
             self.mapper_img2snd.load_state_dict(checkpoint['state_dict_img2snd'])
         else:
             checkpoint = torch.load(mapper_path,

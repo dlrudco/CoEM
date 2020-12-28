@@ -6,22 +6,16 @@ import numpy as np
 from tqdm import tqdm
 
 import torch
-from torch.utils.data import DataLoader
-from torch.optim import SGD, lr_scheduler
+from torch.optim import lr_scheduler
 
 from data_utils import *
 from train_tools import *
 
-from torchvision.utils import save_image, make_grid
 import matplotlib.pyplot as plt
 import math
 
 
 def figure_to_array(fig):
-    """
-    plt.figure를 RGBA로 변환(layer가 4개)
-    shape: height, width, layer
-    """
     fig.canvas.draw()
     return np.array(fig.canvas.renderer._renderer)
 
@@ -49,15 +43,9 @@ class LambdaLR:
         return 1.0 - max(0, epoch + self.offset - self.decay_start_epoch) / (self.n_epochs - self.decay_start_epoch)
 
 def train_model(args):
-    BATCH_SIZE = args.batch_size
-
     LR = args.lr
-    MOMENTUM = args.momentum
     NUM_EPOCHS = args.num_epochs
-    WD = args.wd
-    PATIENCE = args.patience
 
-    NUM_WORKERS = args.num_workers
     DEVICE = args.device
     
     root = '../Data/quickdraw'
@@ -242,26 +230,12 @@ def run_epoch(model_G, model_D, criterion, optimizer_G, optimizer_D, data_loader
 
 
 def parse():
-    parser = argparse.ArgumentParser(description='GCT634 final project demo python')
-    parser.add_argument('--num_workers', '--NUM_WORKERS', default=0, type=int, metavar='N',
-                        help='number of data loading workers (default: 4)')
+    parser = argparse.ArgumentParser(description='CoEM Official Repo')
     parser.add_argument('--num_epochs', '--NUM_EPOCHS', default=15, type=int, metavar='N',
                         help='number of total epochs to run')
-    parser.add_argument('--batch_size', '--BATCH_SIZE', default=32, type=int,
-                        metavar='BATCH_SIZE', help='mini-batch size per process (default: 24)')
     parser.add_argument('--lr', '--learning-rate', '--LR', default=0.001, type=float,
                         metavar='LR',
                         help='Initial learning rate.')
-    parser.add_argument('--momentum', default=0.9, type=float, metavar='MOMENTUM',
-                        help='momentum')
-    parser.add_argument('--wd', '--wd', '--WD', default=1e-04, type=float,
-                        metavar='WD', help='weight decay (default: 5e-4)')
-    parser.add_argument('--patience', '-p', default=40, type=int,
-                        metavar='PATIENCE', help='lr schedule frequency (default: 10)')
-    parser.add_argument('--resume', default='', type=str, metavar='PATH',
-                        help='path to latest checkpoint (default: none)')
-    parser.add_argument('--musicnn_dis', dest='musicnn_dis',action='store_true',
-                        help='Use MusiCNN Front-End Mid-End architecture for Discriminator')
     args = parser.parse_args()
     return args
 
