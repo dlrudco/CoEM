@@ -201,14 +201,14 @@ def learn_mapping(device):
     from image_classifier.train_tools.models import ImgVAE
 
     img_classifier= ImgVAE(z_dim=128, output_units=20)
-    checkpoint = torch.load('image_classifier/experiments/2020-12-15-11_08_38/checkpoint_0009.pth.tar',
+    checkpoint = torch.load('image_classifier/experiments/checkpoint_0009.pth.tar',
                             map_location='cpu')
 
     img_classifier.load_state_dict(checkpoint['state_dict_G'])
     img_classifier = img_classifier.classifier.to(device)
 
     snd_classifier = VAE(z_dim=128, output_units=20)
-    checkpoint = torch.load('sound_classifier/experiments/2020-12-08-15_25_02/checkpoint_0989.pth.tar',
+    checkpoint = torch.load('sound_classifier/experiments/checkpoint_0989.pth.tar',
                             map_location=device)
     snd_classifier.load_state_dict(checkpoint['state_dict_G'])
     snd_classifier = snd_classifier.classifier.to(device)
@@ -325,7 +325,7 @@ def test_mapper(device, resume='mapper_experiments_vaes/checkpoint_0006.pth.tar'
     img_classifier = img_classifier.classifier.to(device)
     print(img_classifier.eval())
     snd_classifier = VAE(z_dim=128, output_units=20)
-    checkpoint = torch.load('sound_classifier/experiments/2020-12-08-15_25_02/checkpoint_0989.pth.tar', map_location=device)
+    checkpoint = torch.load('sound_classifier/experiments/checkpoint_0989.pth.tar', map_location=device)
     snd_classifier.load_state_dict(checkpoint['state_dict_G'])
     print(snd_classifier.eval())
     snd_classifier = snd_classifier.classifier.to(device)
