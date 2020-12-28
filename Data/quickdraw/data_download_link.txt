@@ -1,0 +1,9 @@
+https://drive.google.com/file/d/11wRwzJ8EGf1JlnsnU4EqOvnfcb049sXb/view?usp=sharing
+
+Download dataset from google drive following the link, unzip below here, 'Data' folder
+
+Data/
+    umsun_dataset/
+        images/
+        spec/
+        wav/
