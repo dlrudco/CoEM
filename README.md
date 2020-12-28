@@ -60,6 +60,10 @@ Retrieval Accuracy:
 # References
 [1] Pons, Jordi, and Xavier Serra. "musicnn: Pre-trained convolutional neural networks for music audio tagging." arXiv preprint arXiv:1909.06654 (2019).
 
+[2] Mehdi Mirza and Simon Osindero. Conditional gener-ative adversarial nets.arXiv preprint arXiv:1411.1784,2014
+
+[3]  Ian  Goodfellow,  Jean  Pouget-Abadie,  Mehdi  Mirza,Bing  Xu,  David  Warde-Farley,  Sherjil  Ozair,  AaronCourville, and Yoshua Bengio. Generative adversarialnets. InAdvances in neural information processing sys-tems, pages 2672–2680, 2014
+
 # Code Inspiration
 Musicnn : https://github.com/ilaria-manco/music-audio-tagging-pytorch
 
