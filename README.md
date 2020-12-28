@@ -68,3 +68,5 @@ Retrieval Accuracy:
 Musicnn : https://github.com/ilaria-manco/music-audio-tagging-pytorch
 
 VAE : https://github.com/julianstastny/VAE-ResNet18-PyTorch
+
+@all-contributors bot
