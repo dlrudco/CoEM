@@ -5,8 +5,16 @@ Our CoEM is tested on pytorch 1.7.0(py3.7_cuda10.2.89_cudnn7.6.5_0)
 
 In order to reproduce our work, you need to follow the steps below.
 
+<div>
+<img src="https://github.com/dlrudco/CoEM/blob/master/paper_images/fig1-overview.png?raw=true" width="90%"></img>
+</div>
+
 # Training Image G-D
 Under the image_classifier folder, you can find train_GAN.ipynb file containing training routines for image VAE module.
+
+<div>
+<img src="https://github.com/dlrudco/CoEM/blob/master/paper_images/i2i.png?raw=true" width="90%"></img>
+</div>
 
 # Training Sound G-D
 Under the sound_classifier folder, you can find train_GAN.py file. 
@@ -15,6 +23,10 @@ Use the following command to train the generator-discriminator models
 `python train_GAN.py --musicnn_dis`
 
 Once you finish training, you can find pre-trained models under '**_experiments_**' folder
+
+<div>
+<img src="https://github.com/dlrudco/CoEM/blob/master/paper_images/s2s.png?raw=true" width="90%"></img>
+</div>
 
 # Extracting features
 We provide the google_drive links for extracted features we used under each folders.
