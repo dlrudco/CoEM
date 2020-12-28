@@ -56,3 +56,11 @@ Classification Accuracy:
 
 Retrieval Accuracy:
 `python retrieval_test.py --resume WEIGHT_PATH`
+
+# References
+[1] Pons, Jordi, and Xavier Serra. "musicnn: Pre-trained convolutional neural networks for music audio tagging." arXiv preprint arXiv:1909.06654 (2019).
+
+# Code Inspiration
+Musicnn : https://github.com/ilaria-manco/music-audio-tagging-pytorch
+
+VAE : https://github.com/julianstastny/VAE-ResNet18-PyTorch
