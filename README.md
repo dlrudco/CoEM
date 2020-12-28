@@ -68,3 +68,8 @@ Retrieval Accuracy:
 Musicnn : https://github.com/ilaria-manco/music-audio-tagging-pytorch
 
 VAE : https://github.com/julianstastny/VAE-ResNet18-PyTorch
+
+#Contributors
+<a href="https://github.com/dlrudco/CoEM/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=dlrudco/CoEM" />
+</a>
